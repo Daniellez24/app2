@@ -1,17 +1,14 @@
 package com.example.app2.models;
 
-import android.content.Context;
-
 import com.android.volley.RequestQueue;
-import com.example.app2.VolleySingleton;
 
-public class FactModel {
-    final public static FactModel instance = new FactModel();
+public class MovieModel {
+    final public static MovieModel instance = new MovieModel();
 
     private RequestQueue requestQueue;
     String url = "https://cat-fact.herokuapp.com/facts/random";
 
-    private FactModel(){
+    private MovieModel(){
 //        requestQueue = VolleySingleton.getInstance().getRequestQueue();
     }
 

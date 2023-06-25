@@ -6,23 +6,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app2.models.Fact;
+import com.example.app2.models.Movie;
 import com.example.app2.R;
 
 import java.util.List;
 
-public class FactViewHolder extends RecyclerView.ViewHolder {
+public class MovieViewHolder extends RecyclerView.ViewHolder {
     TextView body;
-    List<Fact> data;
+    List<Movie> data;
 
 
-    public FactViewHolder(@NonNull View itemView, List<Fact> data) {
+    public MovieViewHolder(@NonNull View itemView, List<Movie> data) {
         super(itemView);
         this.data = data;
-        this.body = itemView.findViewById(R.id.fact_tv);
+        this.body = itemView.findViewById(R.id.movieItem_tv);
     }
 
-    public void bind(Fact fact, int pos){
+    public void bind(Movie fact, int pos){
         body.setText(fact.getFactBody());
     }
 }

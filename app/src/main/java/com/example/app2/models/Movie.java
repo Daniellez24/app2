@@ -1,6 +1,6 @@
 package com.example.app2.models;
 
-public class Fact {
+public class Movie {
     String factBody;
 
     public String getFactBody() {

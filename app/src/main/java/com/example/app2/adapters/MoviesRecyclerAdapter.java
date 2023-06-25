@@ -7,38 +7,38 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app2.models.Fact;
+import com.example.app2.models.Movie;
 import com.example.app2.R;
-import com.example.app2.viewHolders.FactViewHolder;
+import com.example.app2.viewHolders.MovieViewHolder;
 
 import java.util.List;
 
-public class FactsRecyclerAdapter  extends RecyclerView.Adapter<FactViewHolder> {
+public class MoviesRecyclerAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
     LayoutInflater inflater;
-    List<Fact> data;
+    List<Movie> data;
 
-    public void setData(List<Fact> data){
+    public void setData(List<Movie> data){
         this.data = data;
     }
 
-    public FactsRecyclerAdapter(LayoutInflater inflater, List<Fact> data) {
+    public MoviesRecyclerAdapter(LayoutInflater inflater, List<Movie> data) {
         this.inflater = inflater;
         this.data = data;
     }
 
     @NonNull
     @Override
-    public FactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // creates a row view
-        View view = inflater.inflate(R.layout.fact_item, parent, false);
-        return new FactViewHolder(view, data);
+        View view = inflater.inflate(R.layout.movie_item, parent, false);
+        return new MovieViewHolder(view, data);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FactViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         // connects between the data and the row view
-        Fact fact = data.get(position);
+        Movie fact = data.get(position);
         holder.bind(fact, position);
     }
 

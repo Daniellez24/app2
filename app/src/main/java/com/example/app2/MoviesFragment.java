@@ -9,18 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.app2.models.Fact;
-import com.example.app2.adapters.FactsRecyclerAdapter;
-import com.example.app2.databinding.FragmentFactsBinding;
+import com.example.app2.databinding.FragmentMoviesBinding;
+import com.example.app2.models.Movie;
+import com.example.app2.adapters.MoviesRecyclerAdapter;
 
 import java.util.List;
 
-public class FactsFragment extends Fragment {
+public class MoviesFragment extends Fragment {
 
-    FragmentFactsBinding binding;
+    FragmentMoviesBinding binding;
 //    private static final Gson gson = new Gson();
 //    FactsRecyclerAdapter adapter;
-    List<Fact> data;
+    List<Movie> data;
 
 
     @Override
@@ -34,13 +34,13 @@ public class FactsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding = FragmentFactsBinding.inflate(inflater, container, false);
+        binding = FragmentMoviesBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        binding.factsRv.setHasFixedSize(true);
-        binding.factsRv.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        binding.moviesFragmentRv.setHasFixedSize(true);
+        binding.moviesFragmentRv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         //data = getFacts
-        binding.factsRv.setAdapter(new FactsRecyclerAdapter(inflater, data));
+        binding.moviesFragmentRv.setAdapter(new MoviesRecyclerAdapter(inflater, data));
 
 
         return view;
