@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 import com.example.app2.databinding.FragmentMoviesBinding;
 import com.example.app2.models.Movie;
 import com.example.app2.adapters.MoviesRecyclerAdapter;
+import com.example.app2.models.MovieModel;
 
 import java.util.List;
 
 public class MoviesFragment extends Fragment {
 
     FragmentMoviesBinding binding;
-//    private static final Gson gson = new Gson();
-//    FactsRecyclerAdapter adapter;
+    MoviesRecyclerAdapter adapter;
     List<Movie> data;
 
 
@@ -39,10 +39,14 @@ public class MoviesFragment extends Fragment {
 
         binding.moviesFragmentRv.setHasFixedSize(true);
         binding.moviesFragmentRv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        //data = getFacts
-        binding.moviesFragmentRv.setAdapter(new MoviesRecyclerAdapter(inflater, data));
+        adapter = new MoviesRecyclerAdapter(getLayoutInflater(), data);
 
+        binding.moviesFragmentRv.setAdapter(adapter);
+//        adapter.setData(data);
 
+//        MovieModel.instance.searchMoviesByTitle("avatar");
+
+        adapter.setData(MovieModel.instance.searchMoviesByTitle("avatar"));
         return view;
     }
 }

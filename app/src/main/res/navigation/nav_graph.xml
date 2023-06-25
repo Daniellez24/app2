@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/factsFragment">
+    app:startDestination="@id/moviesFragment">
 
-    <fragment
-        android:id="@+id/factsFragment"
-        android:name="com.example.app2.MoviesFragment"
-        android:label="fragment_facts"
-        tools:layout="@layout/fragment_movies" />
     <fragment
         android:id="@+id/catFragment"
         android:name="com.example.app2.CatFragment"
         android:label="Cats"
         tools:layout="@layout/fragment_cat" />
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.example.app2.MoviesFragment"
+        android:label="Movies"
+        tools:layout="@layout/fragment_movies" />
 </navigation>

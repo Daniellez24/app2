@@ -38,8 +38,8 @@ public class MoviesRecyclerAdapter extends RecyclerView.Adapter<MovieViewHolder>
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         // connects between the data and the row view
-        Movie fact = data.get(position);
-        holder.bind(fact, position);
+        Movie movie = data.get(position);
+        holder.bind(movie, position);
     }
 
     @Override

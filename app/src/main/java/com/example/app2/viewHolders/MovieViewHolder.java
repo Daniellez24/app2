@@ -22,7 +22,7 @@ public class MovieViewHolder extends RecyclerView.ViewHolder {
         this.body = itemView.findViewById(R.id.movieItem_tv);
     }
 
-    public void bind(Movie fact, int pos){
-        body.setText(fact.getFactBody());
+    public void bind(Movie movie, int pos){
+        body.setText(movie.getTitle());
     }
 }
