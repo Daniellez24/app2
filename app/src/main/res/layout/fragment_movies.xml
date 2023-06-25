@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FactsFragment">
+    tools:context=".MoviesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/facts_rv"
+        android:id="@+id/moviesFragment_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>
