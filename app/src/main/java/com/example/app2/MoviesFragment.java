@@ -1,8 +1,11 @@
 package com.example.app2;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import com.example.app2.databinding.FragmentMoviesBinding;
 import com.example.app2.models.Movie;
 import com.example.app2.adapters.MoviesRecyclerAdapter;
 import com.example.app2.models.MovieModel;
+import com.example.app2.viewModels.MoviesFragmentViewModel;
 
 import java.util.List;
 
@@ -21,6 +25,7 @@ public class MoviesFragment extends Fragment {
     FragmentMoviesBinding binding;
     MoviesRecyclerAdapter adapter;
     List<Movie> data;
+    MoviesFragmentViewModel viewModel;
 
 
     @Override
@@ -39,14 +44,23 @@ public class MoviesFragment extends Fragment {
 
         binding.moviesFragmentRv.setHasFixedSize(true);
         binding.moviesFragmentRv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        adapter = new MoviesRecyclerAdapter(getLayoutInflater(), data);
+        adapter = new MoviesRecyclerAdapter(getLayoutInflater(), viewModel.getData().getValue());
 
         binding.moviesFragmentRv.setAdapter(adapter);
 //        adapter.setData(data);
 
 //        MovieModel.instance.searchMoviesByTitle("avatar");
 
-        adapter.setData(MovieModel.instance.searchMoviesByTitle("avatar"));
+        viewModel.getData().observe(getViewLifecycleOwner(), list -> {
+            adapter.setData(list);
+        });
+
         return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        viewModel = new ViewModelProvider(this).get(MoviesFragmentViewModel.class);
     }
 }

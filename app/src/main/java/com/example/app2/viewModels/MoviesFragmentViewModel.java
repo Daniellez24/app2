@@ -1,5 +1,6 @@
 package com.example.app2.viewModels;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.app2.models.Movie;
@@ -9,9 +10,9 @@ import java.util.List;
 
 public class MoviesFragmentViewModel extends ViewModel {
 
-    private List<Movie> data = MovieModel.instance.searchMoviesByTitle("avatar");
+    private LiveData<List<Movie>> data = MovieModel.instance.searchMoviesByTitle("avatar");
 
-    public List<Movie> getData(){
+    public LiveData<List<Movie>> getData(){
         return data;
     }
 }

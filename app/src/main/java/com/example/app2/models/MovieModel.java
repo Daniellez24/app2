@@ -3,6 +3,7 @@ package com.example.app2.models;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.android.volley.RequestQueue;
 import com.google.gson.Gson;
@@ -34,10 +35,34 @@ public class MovieModel {
         movieApi = retrofit.create(MovieApi.class);
     }
 
-    
+
     // returns the data we receive from the api
-    public List<Movie> searchMoviesByTitle(String title){
-        List<Movie> data = new ArrayList<>();
+//    public List<Movie> searchMoviesByTitle(String title){
+//        List<Movie> data = new ArrayList<>();
+//
+//        Call<MovieSearchResult> call = movieApi.searchMovieByTitle(title);
+//        call.enqueue(new Callback<MovieSearchResult>() {
+//            @Override
+//            public void onResponse(Call<MovieSearchResult> call, Response<MovieSearchResult> response) {
+//                if(response.isSuccessful()){
+//                    MovieSearchResult res = response.body();
+//                    data.addAll(res.getList());
+//                } else {
+//                    Log.d("TAG", "getMoviesByTitle error");
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<MovieSearchResult> call, Throwable t) {
+//                Log.d("TAG", "getMoviesByTitle failed");
+//            }
+//        });
+//
+//        return data;
+//    }
+
+    public LiveData<List<Movie>> searchMoviesByTitle(String title){
+        MutableLiveData<List<Movie>> data = new MutableLiveData<>();
 
         Call<MovieSearchResult> call = movieApi.searchMovieByTitle(title);
         call.enqueue(new Callback<MovieSearchResult>() {
@@ -45,7 +70,7 @@ public class MovieModel {
             public void onResponse(Call<MovieSearchResult> call, Response<MovieSearchResult> response) {
                 if(response.isSuccessful()){
                     MovieSearchResult res = response.body();
-                    data.addAll(res.getList());
+                    data.setValue(res.getList());
                 } else {
                     Log.d("TAG", "getMoviesByTitle error");
                 }

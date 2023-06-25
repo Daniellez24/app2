@@ -20,6 +20,7 @@ public class MoviesRecyclerAdapter extends RecyclerView.Adapter<MovieViewHolder>
 
     public void setData(List<Movie> data){
         this.data = data;
+        notifyDataSetChanged();
     }
 
     public MoviesRecyclerAdapter(LayoutInflater inflater, List<Movie> data) {
