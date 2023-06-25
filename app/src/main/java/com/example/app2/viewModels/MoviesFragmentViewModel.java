@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MoviesFragmentViewModel extends ViewModel {
 
-    private LiveData<List<Movie>> data = MovieModel.instance.searchMoviesByTitle("avatar");
+    private LiveData<List<Movie>> data = MovieModel.instance.searchMoviesByTitle("love");
 
     public LiveData<List<Movie>> getData(){
         return data;
