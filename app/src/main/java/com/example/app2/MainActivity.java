@@ -1,5 +1,6 @@
 package com.example.app2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -7,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.app2.databinding.ActivityMainBinding;
 
@@ -27,5 +29,14 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController);
 
         NavigationUI.setupWithNavController(binding.mainBottomNavigationView, navController);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            navController.popBackStack();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
